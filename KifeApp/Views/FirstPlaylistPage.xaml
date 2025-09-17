@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:KifeApp.ViewModels"
+             x:Class="KifeApp.Views.FirstPlaylistPage"
+             Title="الفيديوهات"
+             >
+
+    <Grid RowDefinitions=" *,auto">
+        <CollectionView 
+            x:Name="cv"
+            ItemsSource="{Binding Videos}"
+                        RemainingItemsThreshold="1"
+                            RemainingItemsThresholdReachedCommand="{Binding LoadMoreVideosCommand}"
+                        SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <!-- هنا نستخدم تصميم الفيديو المشترك -->
+                    <Border
+    Margin="5"
+    StrokeShape="RoundRectangle 5"
+    StrokeThickness="1"
+                        SemanticProperties.Description="{Binding Row}"
+                        AutomationProperties.ExcludedWithChildren="False"
+    >
+
+                        <Border.Shadow>
+                            <Shadow Brush="Black" Opacity="0.5" Offset="5,5" Radius="10" />
+                        </Border.Shadow>
+                        <Grid ColumnDefinitions="120,*,Auto" RowDefinitions="Auto,Auto,Auto" ColumnSpacing="10" RowSpacing="5" Padding="5" >
+                            <Image Grid.Column="0" Grid.RowSpan="3"
+                                   Source="{Binding Thumbnail}"
+                                   Aspect="AspectFill"
+                                   HeightRequest="90"
+                                   WidthRequest="110"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center" />
+
+                            <Label Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2"
+                                   Text="{Binding Title}"
+                                   FontSize="Medium"
+                                   FontAttributes="Bold"
+                                   LineBreakMode="WordWrap" />
+
+                            <Label Grid.Column="1" Grid.Row="1"
+                                   Text="{Binding UploadDate, StringFormat='{0:dd/MM/yyyy}'}"
+                                   SemanticProperties.Description="{Binding Source={RelativeSource Self}, Path=Text, StringFormat='تاريخ النشر: {0}'}"
+                                   FontSize="Small"
+                                   Opacity="0.7" 
+                                   />
+
+                            <Label Grid.Column="2" Grid.Row="1"
+                                   Text="{Binding Duration, StringFormat='{0}'}"
+                                   SemanticProperties.Description="{Binding Source={RelativeSource Self}, Path=Text, StringFormat='المدة: {0}'}"
+                                   FontSize="Small"
+                                   HorizontalTextAlignment="End"
+                                   VerticalTextAlignment="End"
+                                   Opacity="0.7" />
+
+                            <HorizontalStackLayout Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" Spacing="10" HorizontalOptions="End">
+                                <Button Text="فتح"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.OpenVideoCommand}"
+                                        CommandParameter="{Binding .}"
+                                        FontSize="Small"
+                                        Padding="5,0" />
+                                <Button Text="مشاركة"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.ShareVideoCommand}"
+                                        CommandParameter="{Binding .}"
+                                        FontSize="Small"
+                                        Padding="5,0" />
+                            </HorizontalStackLayout>
+
+                        </Grid>
+
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer 
+Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.OpenVideoCommand}"
+CommandParameter="{Binding .}"
+/>
+                        </Border.GestureRecognizers>
+
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            <CollectionView.Footer>
+                <ActivityIndicator IsRunning="{Binding IsLoadingMore}" IsVisible="{Binding IsLoadingMore}" Margin="0,10,0,10" />
+            </CollectionView.Footer>
+        </CollectionView>
+        
+    </Grid>
+</ContentPage>

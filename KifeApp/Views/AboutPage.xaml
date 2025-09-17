@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:KifeApp.ViewModels"
+             x:Class="KifeApp.Views.AboutPage"
+             Title="عن التطبيق"
+             x:DataType="viewmodels:AboutViewModel">
+
+    <ContentPage.BindingContext>
+        <viewmodels:AboutViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="10" Padding="10" VerticalOptions="Center">
+            <!-- معلومات المطور وإصدار التطبيق -->
+            <Border
+StrokeShape="RoundRectangle 10"
+StrokeThickness="1"
+                Padding="15"
+>
+
+                <Border.Shadow>
+                    <Shadow Brush="Black" Opacity="0.5" Offset="5,5" Radius="10" />
+                </Border.Shadow>
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="معلومات عن المطور" FontSize="Title" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                    <Label Text="{Binding DeveloperName}" FontSize="Medium" HorizontalTextAlignment="Center" />
+                    <Label Text="{Binding DeveloperInfo}" FontSize="Small" HorizontalTextAlignment="Center" TextColor="{AppThemeBinding Dark=LightGray, Light=DarkGray}" />
+                    <BoxView HeightRequest="1" Color="{AppThemeBinding Dark=Gray, Light=LightGray}" HorizontalOptions="FillAndExpand" Margin="0,5" />
+                    <Label Text="إصدار التطبيق" FontSize="Title" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                    <Label Text="{Binding AppVersion}" FontSize="Medium" HorizontalTextAlignment="Center" />
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- أزرار الوضع المظلم والفاتح -->
+            <Border
+StrokeShape="RoundRectangle 10"
+StrokeThickness="1"
+                Padding="15"
+>
+
+                <Border.Shadow>
+                    <Shadow Brush="Black" Opacity="0.5" Offset="5,5" Radius="10" />
+                </Border.Shadow>
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="الوضع الليلي / النهاري" FontSize="Title" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                    <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+                        <Button Text="فاتح" Command="{Binding ToggleLightModeCommand}" />
+                        <Button Text="داكن" Command="{Binding ToggleDarkModeCommand}" />
+                        <Button Text="النظام" Command="{Binding ToggleSystemThemeCommand}" />
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- نبذة عن التطبيق -->
+            <Border
+StrokeShape="RoundRectangle 10"
+StrokeThickness="1"
+                Padding="15"
+>
+
+                <Border.Shadow>
+                    <Shadow Brush="Black" Opacity="0.5" Offset="5,5" Radius="10" />
+                </Border.Shadow>
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="نبذة عن KifeApp" FontSize="Title" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                    <Label Text="KifeApp هو تطبيق يسمح لك بتصفح قناه كيف kife بسهولة مع عرض سهل لقوائم التشغيل والفيديوهات. استمتع بتجربة مشاهدة منظمة ومميزة مع إمكانية البحث والتصفية حسب تاريخ النشر. تمتع بالتحكم الكامل في عرض المحتوى!"
+                           FontSize="Medium"
+                           HorizontalTextAlignment="Center"
+                           LineBreakMode="WordWrap" />
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- أزرار التواصل -->
+            <Border
+StrokeShape="RoundRectangle 10"
+StrokeThickness="1"
+                Padding="15"
+>
+
+                <Border.Shadow>
+                    <Shadow Brush="Black" Opacity="0.5" Offset="5,5" Radius="10" />
+                </Border.Shadow>
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="تواصل معنا" FontSize="Title" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                    <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+                        <Button
+        Text="&#xf232; واتساب"
+                FontFamily="FAB"
+        BackgroundColor="Transparent"
+        FontSize="32"
+        TextColor="{AppThemeBinding Light=Black, Dark=White}"
+                SemanticProperties.Description="واتساب"
+                            Command="{Binding OpenWhatsAppCommand}"
+                            />
+                        <Button 
+                            Text="&#xf3fe; تليجرام"
+                    FontFamily="FAB"
+        BackgroundColor="Transparent"
+        FontSize="32"
+        TextColor="{AppThemeBinding Light=Black, Dark=White}"
+                    SemanticProperties.Description="تليجرام"
+                            Command="{Binding OpenTelegramCommand}"
+                                />
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

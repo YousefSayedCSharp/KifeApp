@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="KifeApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:KifeApp.Views"
+    xmlns:system="clr-namespace:System;assembly=mscorlib"
+    Shell.FlyoutBehavior="Disabled"
+    FlowDirection="RightToLeft"
+    Title="KifeApp"
+    >
+
+    <!-- تعريف الموارد لـ Font Awesome Icons -->
+    <Shell.Resources>
+        <ResourceDictionary>
+            <!-- يمكنك وضع رموز Font Awesome هنا كـ Char -->
+            <!-- هذه هي رموز Unicode لأيقونات Font Awesome. تأكد من مطابقتها لإصدار Font Awesome الذي تستخدمه. -->
+            <!-- يمكنك العثور على الرموز في موقع Font Awesome الرسمي أو في ملف cheatsheet الخاص بهم. -->
+            <x:String x:Key="YoutubeVideosIcon">&#xf167;</x:String>
+            <!-- fa-youtube -->
+            <x:String x:Key="YoutubePlaylistsIcon">&#xf03a;</x:String>
+            <!-- fa-list -->
+            <x:String x:Key="SearchIcon">&#xf002;</x:String>
+            <!-- fa-search -->
+            <x:String x:Key="AboutIcon">&#xf05a;</x:String>
+            <!-- fa-info-circle -->
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <TabBar>
+        <ShellContent
+            Title="الفيديوهات"
+            ContentTemplate="{DataTemplate local:FirstPlaylistPage}">
+            <ShellContent.Icon>
+                <FontImageSource
+                    FontFamily="FAB"
+                    Glyph="{StaticResource YoutubeVideosIcon}"
+                    Color="{AppThemeBinding Light=Black, Dark=White}"
+                    />
+                <!-- يمكنك تغيير اللون هنا -->
+            </ShellContent.Icon>
+        </ShellContent>
+
+        <ShellContent
+            Title="قوائم التشغيل"
+            ContentTemplate="{DataTemplate local:OtherPlaylistsPage}">
+            <ShellContent.Icon>
+                <FontImageSource
+                    FontFamily="FAS"
+                    Glyph="{StaticResource YoutubePlaylistsIcon}"
+                    Color="{AppThemeBinding Light=Black, Dark=White}"
+/>
+                <!-- يمكنك تغيير اللون هنا -->
+            </ShellContent.Icon>
+        </ShellContent>
+
+        <ShellContent
+            Title="بحث"
+            ContentTemplate="{DataTemplate local:SearchPage}">
+            <ShellContent.Icon>
+                <FontImageSource
+                    FontFamily="FAS"
+                    Glyph="{StaticResource SearchIcon}"
+                    Color="{AppThemeBinding Light=Black, Dark=White}"
+/>
+                <!-- يمكنك تغيير اللون هنا -->
+            </ShellContent.Icon>
+        </ShellContent>
+
+        <ShellContent
+            Title="عني"
+            ContentTemplate="{DataTemplate local:AboutPage}">
+            <ShellContent.Icon>
+                <FontImageSource
+                    FontFamily="FAS"
+                    Glyph="{StaticResource AboutIcon}"
+                    Color="{AppThemeBinding Light=Black, Dark=White}"
+/>
+                <!-- يمكنك تغيير اللون هنا -->
+            </ShellContent.Icon>
+        </ShellContent>
+    </TabBar>
+
+</Shell>

@@ -1,0 +1,48 @@
+﻿<!-- هذا الجزء سيستخدم داخل <CollectionView.ItemTemplate> -->
+<Frame Margin="5" Padding="5" HasShadow="True">
+    <Grid ColumnDefinitions="120,*,Auto" RowDefinitions="Auto,Auto,Auto" ColumnSpacing="10" RowSpacing="5">
+        <!-- الصورة المصغرة -->
+        <Image Grid.Column="0" Grid.RowSpan="3"
+               Source="{Binding Thumbnail}"
+               Aspect="AspectFill"
+               HeightRequest="90"
+               WidthRequest="110"
+               VerticalOptions="Center"
+               HorizontalOptions="Center" />
+
+        <!-- عنوان الفيديو -->
+        <Label Grid.Column="1" Grid.Row="0"
+               Text="{Binding Title}"
+               FontSize="Medium"
+               FontAttributes="Bold"
+               LineBreakMode="WordWrap" />
+
+        <!-- تاريخ النشر -->
+        <Label Grid.Column="1" Grid.Row="1"
+               Text="{Binding UploadDate, StringFormat='تاريخ النشر: {0:yyyy-MM-dd}'}"
+               FontSize="Small"
+               Opacity="0.7" />
+
+        <!-- مدة الفيديو -->
+        <Label Grid.Column="2" Grid.Row="1"
+               Text="{Binding Duration, StringFormat='المدة: {0}'}"
+               FontSize="Small"
+               HorizontalTextAlignment="End"
+               VerticalTextAlignment="End"
+               Opacity="0.7" />
+
+        <!-- الأزرار -->
+        <HorizontalStackLayout Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" Spacing="10" HorizontalOptions="End">
+            <Button Text="فتح"
+                    Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.OpenVideoCommand}"
+                    CommandParameter="{Binding .}"
+                    FontSize="Small"
+                    Padding="5,0" />
+            <Button Text="مشاركة"
+                    Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.ShareVideoCommand}"
+                    CommandParameter="{Binding .}"
+                    FontSize="Small"
+                    Padding="5,0" />
+        </HorizontalStackLayout>
+    </Grid>
+</Frame>

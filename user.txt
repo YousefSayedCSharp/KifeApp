@@ -1,0 +1,1602 @@
+user:
+أريد منك كتابة وتصميم تطبيق باستخدام .net maui هذا البرنامج يقوم بقراءة البيانات من ملف json وعرضها
+إسم الملف : final.json
+مسار الملف : Resources\Raw\final.json
+عينة من الملف
+[
+{
+"playlist": "ايجار من طرف واحد",
+"videos": [
+{
+"Title": "رعب +18 قصة ( ايجار من طرف واحد ) ل حسين سيد الفصل الاول",
+"URL": "https://www.youtube.com/watch?v=4ezzx4y8K04",
+"UploadDate": "2018-04-13T00:00:00",
+"Duration": "00:14:14",
+"Thumbnail": "https://i.ytimg.com/vi/4ezzx4y8K04/sddefault.jpg"
+},
+{
+"Title": "قصص رعب +18 قصة ( ايجار من طرف واحد ) ل حسين سيد الجزء الثانى والثالث",
+"URL": "https://www.youtube.com/watch?v=oXSnbmsnlLg",
+"UploadDate": "2018-04-22T00:00:00",
+"Duration": "00:27:04",
+"Thumbnail": "https://i.ytimg.com/vi/oXSnbmsnlLg/sddefault.jpg"
+},
+{
+"Title": "قصص رعب +18 قصة ( ايجار من طرف واحد ) ل حسين سيد الجزء الرابع والاخير",
+"URL": "https://www.youtube.com/watch?v=u_Gywof6KFo",
+"UploadDate": "2018-05-03T00:00:00",
+"Duration": "00:16:27",
+"Thumbnail": "https://i.ytimg.com/vi/u_Gywof6KFo/hqdefault.jpg"
+}
+]
+},
+{
+"playlist": "رعب في مصيف اسكندرية",
+"videos": [
+{
+"Title": "رعب في مصيف اسكندرية الجزء الاول",
+"URL": "https://www.youtube.com/watch?v=PfV7vjJcT78",
+"UploadDate": "2017-03-21T00:00:00",
+"Duration": "00:20:32",
+"Thumbnail": "https://i.ytimg.com/vi/PfV7vjJcT78/maxresdefault.jpg"
+},
+{
+"Title": "قصة رعب حقيقية +18 ( رعب فى مصيف اسكندرية " الجزء الثانى " )",
+"URL": "https://www.youtube.com/watch?v=lND-mmlagvc",
+"UploadDate": "2018-01-18T00:00:00",
+"Duration": "00:39:47",
+"Thumbnail": "https://i.ytimg.com/vi/lND-mmlagvc/hqdefault.jpg"
+}
+]
+},
+{
+"playlist": "فى ضيافة الجن",
+"videos": [
+{
+"Title": "قصة رعب+18  ( "في ضيافة الجن" الجزء الاول )",
+"URL": "https://www.youtube.com/watch?v=yk2uZE_-Bjc",
+"UploadDate": "2017-12-14T00:00:00",
+"Duration": "00:27:11",
+"Thumbnail": "https://i.ytimg.com/vi_webp/yk2uZE_-Bjc/maxresdefault.webp"
+},
+{
+"Title": "قصة رعب+18 ( "في ضيافة الجن" الجزء الثانى )",
+"URL": "https://www.youtube.com/watch?v=SrHOAR1XbbY",
+"UploadDate": "2017-12-19T00:00:00",
+"Duration": "00:21:49",
+"Thumbnail": "https://i.ytimg.com/vi_webp/SrHOAR1XbbY/maxresdefault.webp"
+},
+{
+"Title": "قصة رعب+18 ( "في ضيافة الجن" الجزء الثالث والاخير )",
+"URL": "https://www.youtube.com/watch?v=fGxNuBD4ikE",
+"UploadDate": "2017-12-27T00:00:00",
+"Duration": "00:50:03",
+"Thumbnail": "https://i.ytimg.com/vi_webp/fGxNuBD4ikE/maxresdefault.webp"
+}
+]
+}
+]
+هذا التطبيق يتكون من 4 علامات تبويب
+الأولى: تعرض أول قائمة في الملف json  لكن يتم عرضها تباعا 10 فيديوهات تلو الآخر باستخدام
+مثال هذا الكود
+RemainingItemsThreshold="1"
+RemainingItemsThresholdReachedCommand="{Binding LoadMoreVideosCommand}"
+الثانية : تعرض باقي القوائم كلها باستخدام is group وأيضا تباعا يعني مثلا في كل مرة 5 groups
+توضيح على الأولى والثانية
+شكل عرض معلومات الفيديو في القائمة
+على اليمين الصورة المصغرة ثم بجانبها عنوان الفيديو ثم أسفل منه تاريخ نشره ثم أمامه على اليسار تماما مدة الفيديو ثم آخيرا على اليسار تماما أزرار فتح ويفتح الفيديو على تطبيق يوتيوب وزر مشاركة الرابط الفيديو مع عنوانه يعني عنوان الفيديو ثم url الفيديو
+الثالثة : بحث يتم البحث في الفديوهات كلها بغض النظر عن قوائم التشغيل وفلترة بمعنا أنا مش عايز أبحث لكن عايز أشوف الفيديوهات الي بتاريخ اليوم أو آخر 7 أيام أو شهر أو عام
+رابعا الإعدادات أزرار للوضع المظلم والفاتح ولو المستخدم مش مخطار حاجة تكون كما هي مثل النظام  ونبذة عن التطبيق إحترافية وأزرار واتساب وتلي جرام تفتح الدردشة مع هذا الرقم
+01098673012
+وفوق هذه الأزرار معلومات عن مطور هذا التطبيق وإسدار التطبيق
+هذا كل شيئ يا صديقي
+ملحوظة: لا تخصص أي ألوان للخطوط أو حتى للخلفيات
+التطبيق باسم
+KifeApp
+وإليك أكواد قمت باستخدامها لتجربة بعض الأمور قد تساعدك وأنا قمت بحذفها
+
+<?xml version="1.0" encoding="utf-8" ?>
+
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+x:Class="KifeApp.MainPage"
+Loaded="ContentPage_Loaded"
+>
+
+code
+Code
+download
+content_copy
+expand_less
+
+<Grid RowDefinitions="*,auto" ColumnDefinitions="*" RowSpacing="10">
+    <CollectionView 
+        x:Name="cv"
+        IsGrouped="True"
+        >
+        <CollectionView.GroupHeaderTemplate>
+            <DataTemplate>
+                <Grid >
+                    <Label Text="{Binding playlist}" 
+                           FontSize="Large" 
+                           FontAttributes="Bold" 
+                           
+                           Padding="10,5"/>
+                </Grid>
+            </DataTemplate>
+        </CollectionView.GroupHeaderTemplate>
+
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Grid SemanticProperties.Description="{Binding Title}" Padding="20,0">
+                    <Label Text="{Binding Title}" 
+                           FontSize="Medium" 
+                           />
+                </Grid>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+
+    </CollectionView>
+
+    <Button 
+        Grid.Row="1"
+        Text="تحميل الفيديوهات"
+        Clicked="Button_Clicked"            
+        Margin="20"
+        />
+</Grid>
+</ContentPage>
+//using KifeApp.Models;
+
+
+//namespace KifeApp
+//{
+//    public partial class MainPage : ContentPage
+//    {
+//        public MainPage()
+//        {
+//            InitializeComponent();
+//        }
+
+//        private void ContentPage_Loaded(object sender, EventArgs e)
+//        {
+
+//        }
+
+//        private async void Button_Clicked(object sender, EventArgs e)
+//        {
+//            try
+//            {
+//                string AppDataDirectory = FileSystem.AppDataDirectory;
+//                //string fn = "AboutAssets.txt";
+//                string fn = "final.json";
+//                string fp = Path.Combine(AppDataDirectory, fn);
+//                await InitializeDatabaseAsync(fn, fp);
+//                //File.Delete(fp);
+//                //return;
+//                string f = File.ReadAllText(fp);
+//                List<PlayListModel> vm = JsonHelper.DeserializeJson<List<PlayListModel>>(f);
+//                //DisplayAlert("",""+vm.Count,"OK");
+//                //return;
+//                //cv.ItemsSource = vm.Skip(2).Take(10).ToList();
+//                // تجاهل أول قائمتين تشغيل
+//                var filtered = vm.Skip(2).ToList();
+//                cv.ItemsSource = filtered;
+//                //DisplayAlert("",f,"Ok");
+//            }
+//            catch (Exception ex)
+//            {
+//                await DisplayAlert("",ex.Message,"OK");
+//            }
+//        }
+
+//        public async Task InitializeDatabaseAsync(string dbInPackagePath, string dbPathIndevice)
+//        {
+//            try
+//            {
+//                if (!File.Exists(dbPathIndevice))
+//                {
+//                    using var stream = await FileSystem.OpenAppPackageFileAsync(dbInPackagePath);
+//                    using var fileStream = File.Create(dbPathIndevice);
+//                    await stream.CopyToAsync(fileStream);
+//                    //await Shell.Current.DisplayAlert("",""+ dbPathIndevice, "OK");
+//                }
+//            }
+//            catch (Exception ex)
+//            {
+//                await DisplayAlert("",ex.Message,"OK");
+//            }
+//        }
+//    }
+//}
+//1//
+using KifeApp.Models;
+using System.Collections.ObjectModel; // تأكد من وجود هذا
+
+namespace KifeApp
+{
+public partial class MainPage : ContentPage
+{
+public MainPage()
+{
+InitializeComponent();
+}
+
+code
+Code
+download
+content_copy
+expand_less
+IGNORE_WHEN_COPYING_START
+IGNORE_WHEN_COPYING_END
+private void ContentPage_Loaded(object sender, EventArgs e)
+    {
+
+    }
+
+    private async void Button_Clicked(object sender, EventArgs e)
+    {
+        try
+        {
+            string AppDataDirectory = FileSystem.AppDataDirectory;
+            string fn = "final.json";
+            string fp = Path.Combine(AppDataDirectory, fn);
+            await InitializeDatabaseAsync(fn, fp);
+
+            string f = File.ReadAllText(fp);
+
+            // استخدام كلاس مساعد مؤقت لتجنب تعديل PlayListModel مباشرة في البداية
+            List<RawPlayListModel> rawVm = JsonHelper.DeserializeJson<List<RawPlayListModel>>(f);
+
+            // تحويل RawPlayListModel إلى PlayListModel الجديد
+            var groupedVm = new ObservableCollection<PlayListModel>();
+            foreach (var rawPlaylist in rawVm.Skip(2)) // تجاهل أول قائمتين تشغيل
+            {
+                groupedVm.Add(new PlayListModel(rawPlaylist.playlist, rawPlaylist.videos));
+            }
+
+            cv.ItemsSource = groupedVm;
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("خطأ", ex.Message, "OK");
+        }
+    }
+
+    public async Task InitializeDatabaseAsync(string dbInPackagePath, string dbPathIndevice)
+    {
+        try
+        {
+            if (!File.Exists(dbPathIndevice))
+            {
+                using var stream = await FileSystem.OpenAppPackageFileAsync(dbInPackagePath);
+                using var fileStream = File.Create(dbPathIndevice);
+                await stream.CopyToAsync(fileStream);
+            }
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("خطأ في تهيئة قاعدة البيانات", ex.Message, "OK");
+        }
+    }
+}
+
+// كلاس مساعد لفك تشفير JSON الأصلي قبل التحويل
+public class RawPlayListModel
+{
+    public string? playlist { get; set; }
+    public List<VideoModel>? videos { get; set; }
+}
+
+}
+وإليك ال models وطبعا ممسحتهاش
+using System.Collections.ObjectModel; // لا تنسَ إضافة هذا الـ using
+
+namespace KifeApp.Models;
+
+public class PlayListModel : ObservableCollection<VideoModel> // التغيير هنا
+{
+public string? playlist { get; set; }
+
+code
+Code
+download
+content_copy
+expand_less
+IGNORE_WHEN_COPYING_START
+IGNORE_WHEN_COPYING_END
+// يجب إضافة باني (constructor) لتمرير قائمة الفيديوهات الأساسية
+public PlayListModel(string? playlistName, IEnumerable<VideoModel>? videos) : base(videos ?? new List<VideoModel>())
+{
+    playlist = playlistName;
+}
+
+// باني افتراضي للحالات التي قد لا تحتاج فيها لتمرير البيانات مباشرة
+public PlayListModel() : base() { }
+
+}
+namespace KifeApp.Models;
+
+code
+Code
+download
+content_copy
+expand_less
+IGNORE_WHEN_COPYING_START
+IGNORE_WHEN_COPYING_END
+public class VideoModel
+{
+    public string? Title { get; set; }
+    public string? URL { get; set; }
+    public DateTime? UploadDate { get; set; }
+    public string? Duration { get; set; }
+    public string? Thumbnail { get; set; }
+}
+
+وقمت بتثبيت
+CommunityToolkit.Mvvm
+وإنشاء مجلدات
+Models
+ViewModels
+Views
+
+model:
+
+بالتأكيد يا صديقي! سأساعدك في بناء تطبيق KifeApp الرائع باستخدام .NET MAUI لقراءة وعرض بيانات JSON. سنقوم بتصميم التطبيق ليحتوي على أربع علامات تبويب كما طلبت، مع الأخذ في الاعتبار جميع التفاصيل التي ذكرتها.
+
+لنبدأ بتنظيم المشروع والهيكل العام.
+
+1. هيكل المشروع (تأكد من وجود هذه المجلدات والملفات):
+
+code
+Code
+download
+content_copy
+expand_less
+
+KifeApp
+├── App.xaml
+├── App.xaml.cs
+├── AppShell.xaml
+├── AppShell.xaml.cs
+├── MauiProgram.cs
+├── Resources
+│   ├── Raw
+│   │   └── final.json  <-- ضع ملف JSON هنا
+│   └── ... (باقي الموارد)
+├── Models
+│   ├── PlayListModel.cs
+│   └── VideoModel.cs
+├── ViewModels
+│   ├── AboutViewModel.cs
+│   ├── FirstPlaylistViewModel.cs
+│   ├── OtherPlaylistsViewModel.cs
+│   └── SearchViewModel.cs
+├── Views
+│   ├── AboutPage.xaml
+│   ├── AboutPage.xaml.cs
+│   ├── FirstPlaylistPage.xaml
+│   ├── FirstPlaylistPage.xaml.cs
+│   ├── OtherPlaylistsPage.xaml
+│   ├── OtherPlaylistsPage.xaml.cs
+│   ├── SearchPage.xaml
+│   └── SearchPage.xaml.cs
+
+2. ملف final.json
+
+تأكد من وضع ملف final.json في مجلد Resources\Raw.
+
+3. تعديل MauiProgram.cs
+
+لإضافة الـ CommunityToolkit.Mvvm ولتسجيل الـ ViewModels والـ Pages:
+
+code
+C#
+download
+content_copy
+expand_less
+IGNORE_WHEN_COPYING_START
+IGNORE_WHEN_COPYING_END
+// MauiProgram.cs
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using KifeApp.Models;
+using KifeApp.ViewModels;
+using KifeApp.Views;
+using Microsoft.Extensions.Logging;
+
+namespace KifeApp;
+
+public static class MauiProgram
+{
+    public static MauiApp CreateMauiApp()
+    {
+        var builder = MauiApp.CreateBuilder();
+        builder
+            .UseMauiApp<App>()
+            .ConfigureFonts(fonts =>
+            {
+                fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+            })
+            .UseMauiCommunityToolkit(); // أضف هذه السطر لاستخدام CommunityToolkit
+
+#if DEBUG
+        builder.Logging.AddDebug();
+#endif
+
+        // تسجيل الخدمات (Service)
+        builder.Services.AddSingleton<JsonDataService>();
+
+        // تسجيل ViewModels
+        builder.Services.AddTransient<FirstPlaylistViewModel>();
+        builder.Services.AddTransient<OtherPlaylistsViewModel>();
+        builder.Services.AddTransient<SearchViewModel>();
+        builder.Services.AddSingleton<AboutViewModel>(); // Singleton لأن المعلومات ثابتة
+
+        // تسجيل الصفحات (Views)
+        builder.Services.AddTransient<FirstPlaylistPage>();
+        builder.Services.AddTransient<OtherPlaylistsPage>();
+        builder.Services.AddTransient<SearchPage>();
+        builder.Services.AddTransient<AboutPage>();
+
+        return builder.Build();
+    }
+}
+
+4. AppShell.xaml
+
+هذا هو المكان الذي سنحدد فيه علامات التبويب الأربعة.
+
+code
+Xml
+download
+content_copy
+expand_less
+IGNORE_WHEN_COPYING_START
+IGNORE_WHEN_COPYING_END
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="KifeApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:KifeApp.Views"
+    Shell.FlyoutBehavior="Disabled"
+    Title="KifeApp">
+
+    <TabBar>
+        <ShellContent
+            Title="القائمة الأولى"
+            ContentTemplate="{DataTemplate local:FirstPlaylistPage}"
+            Icon="youtube_icon.png" />
+        <ShellContent
+            Title="باقي القوائم"
+            ContentTemplate="{DataTemplate local:OtherPlaylistsPage}"
+            Icon="playlists_icon.png" />
+        <ShellContent
+            Title="بحث وتصفية"
+            ContentTemplate="{DataTemplate local:SearchPage}"
+            Icon="search_icon.png" />
+        <ShellContent
+            Title="عن التطبيق"
+            ContentTemplate="{DataTemplate local:AboutPage}"
+            Icon="info_icon.png" />
+    </TabBar>
+
+</Shell>
+
+ملاحظة: ستحتاج إلى إضافة أيقونات (مثل youtube_icon.png, playlists_icon.png, search_icon.png, info_icon.png) إلى مجلد Resources\Images في مشروعك. يمكنك البحث عن أيقونات مجانية مناسبة أو إنشاءها.
+إذا لم تكن متأكدا، إليك صورة مقترحة يمكنك استخدامها كأيقونة YouTube:
+إذا لم تكن متأكدا، إليك صورة مقترحة يمكنك استخدامها كأيقونة YouTube:
+Open options
+Generated Image September 13, 2025 - 4:30AM.png
+ 
+Open options
+5. JsonDataService.cs (مجلد Services)
+سنقوم بإنشاء خدمة لفك تشفير بيانات JSON.
+C#
+ 
+ 
+ 
+// Services/JsonDataService.cs
+using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
+using System.Threading.Tasks;
+using KifeApp.Models; // تأكد من استيراد النماذج
+
+namespace KifeApp.Services
+{
+    public class JsonDataService
+    {
+        private const string FileName = "final.json";
+        private const string FilePath = "Resources\\Raw\\final.json"; // المسار داخل حزمة التطبيق
+
+        public async Task<List<PlayListModel>> LoadDataAsync()
+        {
+            try
+            {
+                using Stream fileStream = await FileSystem.Current.OpenAppPackageFileAsync(FileName);
+                using StreamReader reader = new StreamReader(fileStream);
+                string jsonContent = await reader.ReadToEndAsync();
+
+                var rawPlaylists = JsonSerializer.Deserialize<List<RawPlayListModel>>(jsonContent, new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true // لتجاهل حساسية الأحرف في أسماء الخصائص
+                });
+
+                // تحويل RawPlayListModel إلى PlayListModel الجديد
+                var playlists = new List<PlayListModel>();
+                foreach (var rawPlaylist in rawPlaylists)
+                {
+                    playlists.Add(new PlayListModel(rawPlaylist.playlist, rawPlaylist.videos));
+                }
+
+                return playlists;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error loading JSON data: {ex.Message}");
+                // يمكنك التعامل مع الخطأ بشكل أفضل هنا، مثلاً عرض تنبيه للمستخدم
+                return new List<PlayListModel>();
+            }
+        }
+    }
+
+    // كلاس مساعد لفك تشفير JSON الأصلي قبل التحويل (نفس الذي كنت تستخدمه)
+    public class RawPlayListModel
+    {
+        public string? playlist { get; set; }
+        public List<VideoModel>? videos { get; set; }
+    }
+}
+6. نماذج البيانات (Models)
+VideoModel.cs (لم يتغير)
+C#
+ 
+ 
+ 
+// Models/VideoModel.cs
+using System;
+
+namespace KifeApp.Models;
+
+public class VideoModel
+{
+    public string? Title { get; set; }
+    public string? URL { get; set; }
+    public DateTime? UploadDate { get; set; }
+    public string? Duration { get; set; }
+    public string? Thumbnail { get; set; }
+}
+PlayListModel.cs (تعديلات طفيفة على الذي كنت تستخدمه)
+C#
+ 
+ 
+ 
+// Models/PlayListModel.cs
+using System.Collections.ObjectModel;
+using System.Collections.Generic;
+
+namespace KifeApp.Models;
+
+public class PlayListModel : ObservableCollection<VideoModel>
+{
+    public string? playlist { get; set; }
+
+    public PlayListModel(string? playlistName, IEnumerable<VideoModel>? videos) : base(videos ?? new List<VideoModel>())
+    {
+        playlist = playlistName;
+    }
+
+    // باني افتراضي مطلوب للـ CollectionView.IsGrouped ليعمل بشكل صحيح
+    public PlayListModel() : base() { }
+}
+7. تصميم وعرض الفيديو (مكونات مشتركة)
+سنقوم بإنشاء DataTemplate مشترك لعرض تفاصيل الفيديو لكي لا نكرر الكود في كل صفحة. يمكنك وضعه كـ ResourceDictionary أو تضمينه مباشرة في CollectionView.ItemTemplate لكل صفحة. لتبسيط الأمر، سنضعه مباشرة.
+تصميم عرض الفيديو المقترح:
+Xml
+ 
+ 
+ 
+<!-- هذا الجزء سيستخدم داخل <CollectionView.ItemTemplate> -->
+<Frame Margin="5" Padding="5" HasShadow="True">
+    <Grid ColumnDefinitions="120,*,Auto" RowDefinitions="Auto,Auto,Auto" ColumnSpacing="10" RowSpacing="5">
+        <!-- الصورة المصغرة -->
+        <Image Grid.Column="0" Grid.RowSpan="3"
+               Source="{Binding Thumbnail}"
+               Aspect="AspectFill"
+               HeightRequest="90"
+               WidthRequest="110"
+               VerticalOptions="Center"
+               HorizontalOptions="Center" />
+
+        <!-- عنوان الفيديو -->
+        <Label Grid.Column="1" Grid.Row="0"
+               Text="{Binding Title}"
+               FontSize="Medium"
+               FontAttributes="Bold"
+               LineBreakMode="WordWrap" />
+
+        <!-- تاريخ النشر -->
+        <Label Grid.Column="1" Grid.Row="1"
+               Text="{Binding UploadDate, StringFormat='تاريخ النشر: {0:yyyy-MM-dd}'}"
+               FontSize="Small"
+               Opacity="0.7" />
+
+        <!-- مدة الفيديو -->
+        <Label Grid.Column="2" Grid.Row="1"
+               Text="{Binding Duration, StringFormat='المدة: {0}'}"
+               FontSize="Small"
+               HorizontalTextAlignment="End"
+               VerticalTextAlignment="End"
+               Opacity="0.7" />
+
+        <!-- الأزرار -->
+        <HorizontalStackLayout Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" Spacing="10" HorizontalOptions="End">
+            <Button Text="فتح"
+                    Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.OpenVideoCommand}"
+                    CommandParameter="{Binding .}"
+                    FontSize="Small"
+                    Padding="5,0" />
+            <Button Text="مشاركة"
+                    Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.ShareVideoCommand}"
+                    CommandParameter="{Binding .}"
+                    FontSize="Small"
+                    Padding="5,0" />
+        </HorizontalStackLayout>
+    </Grid>
+</Frame>
+ملاحظة هامة: الأوامر 
+OpenVideoCommand و ShareVideoCommand يجب أن تكون موجودة في كل ViewModel للصفحات التي تستخدم هذا الـ DataTemplate. سنقوم بإضافتها لاحقًا.
+ 
+الآن، لننتقل إلى كل علامة تبويب على حدة.
+علامة التبويب الأولى: عرض أول قائمة تشغيل (10 فيديوهات تباعاً)
+8. FirstPlaylistViewModel.cs
+C#
+ 
+ 
+ 
+// ViewModels/FirstPlaylistViewModel.cs
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using KifeApp.Models;
+using KifeApp.Services;
+using System.Collections.ObjectModel;
+using System.Windows.Input;
+
+namespace KifeApp.ViewModels
+{
+    public partial class FirstPlaylistViewModel : ObservableObject
+    {
+        private readonly JsonDataService _jsonDataService;
+        private List<VideoModel> _allFirstPlaylistVideos;
+        private int _loadedVideoCount = 0;
+        private const int VideosPerPage = 10;
+
+        [ObservableProperty]
+        public ObservableCollection<VideoModel> videos = new ObservableCollection<VideoModel>();
+
+        [ObservableProperty]
+        public bool isLoadingMore = false; // لإظهار مؤشر التحميل
+
+        public ICommand LoadMoreVideosCommand { get; }
+        public ICommand OpenVideoCommand { get; }
+        public ICommand ShareVideoCommand { get; }
+
+        public FirstPlaylistViewModel(JsonDataService jsonDataService)
+        {
+            _jsonDataService = jsonDataService;
+            LoadMoreVideosCommand = new AsyncRelayCommand(LoadMoreVideosAsync);
+            OpenVideoCommand = new AsyncRelayCommand<VideoModel>(OpenVideo);
+            ShareVideoCommand = new AsyncRelayCommand<VideoModel>(ShareVideo);
+
+            _ = LoadInitialVideosAsync(); // تحميل الفيديوهات الأولية عند إنشاء الـ ViewModel
+        }
+
+        private async Task LoadInitialVideosAsync()
+        {
+            var allPlaylists = await _jsonDataService.LoadDataAsync();
+            if (allPlaylists != null && allPlaylists.Any())
+            {
+                _allFirstPlaylistVideos = allPlaylists[0].ToList(); // أول قائمة تشغيل
+                await LoadMoreVideosAsync(); // تحميل أول 10 فيديوهات
+            }
+        }
+
+        private async Task LoadMoreVideosAsync()
+        {
+            if (IsLoadingMore || _allFirstPlaylistVideos == null || _loadedVideoCount >= _allFirstPlaylistVideos.Count)
+                return;
+
+            IsLoadingMore = true;
+
+            await Task.Delay(500); // محاكاة وقت التحميل
+
+            var videosToLoad = _allFirstPlaylistVideos
+                .Skip(_loadedVideoCount)
+                .Take(VideosPerPage)
+                .ToList();
+
+            foreach (var video in videosToLoad)
+            {
+                Videos.Add(video);
+            }
+
+            _loadedVideoCount += videosToLoad.Count;
+            IsLoadingMore = false;
+        }
+
+        private async Task OpenVideo(VideoModel video)
+        {
+            if (video?.URL != null)
+            {
+                try
+                {
+                    await Browser.OpenAsync(video.URL, BrowserLaunchMode.SystemPreferred);
+                }
+                catch (Exception ex)
+                {
+                    await Shell.Current.DisplayAlert("خطأ", $"تعذر فتح الفيديو: {ex.Message}", "موافق");
+                }
+            }
+        }
+
+        private async Task ShareVideo(VideoModel video)
+        {
+            if (video?.URL != null && video.Title != null)
+            {
+                await Share.RequestAsync(new ShareTextRequest
+                {
+                    Text = $"{video.Title}\n{video.URL}",
+                    Title = "مشاركة الفيديو"
+                });
+            }
+        }
+    }
+}
+9. FirstPlaylistPage.xaml
+Xml
+ 
+ 
+ 
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:KifeApp.ViewModels"
+             x:Class="KifeApp.Views.FirstPlaylistPage"
+             Title="القائمة الأولى"
+             x:DataType="viewmodels:FirstPlaylistViewModel">
+
+    <ContentPage.BindingContext>
+        <viewmodels:FirstPlaylistViewModel />
+    </ContentPage.BindingContext>
+
+    <Grid>
+        <CollectionView ItemsSource="{Binding Videos}"
+                        RemainingItemsThreshold="1"
+                        RemainingItemsThresholdReachedCommand="{Binding LoadMoreVideosCommand}"
+                        SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <!-- هنا نستخدم تصميم الفيديو المشترك -->
+                    <Frame Margin="5" Padding="5" HasShadow="True">
+                        <Grid ColumnDefinitions="120,*,Auto" RowDefinitions="Auto,Auto,Auto" ColumnSpacing="10" RowSpacing="5">
+                            <Image Grid.Column="0" Grid.RowSpan="3"
+                                   Source="{Binding Thumbnail}"
+                                   Aspect="AspectFill"
+                                   HeightRequest="90"
+                                   WidthRequest="110"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center" />
+
+                            <Label Grid.Column="1" Grid.Row="0"
+                                   Text="{Binding Title}"
+                                   FontSize="Medium"
+                                   FontAttributes="Bold"
+                                   LineBreakMode="WordWrap" />
+
+                            <Label Grid.Column="1" Grid.Row="1"
+                                   Text="{Binding UploadDate, StringFormat='تاريخ النشر: {0:yyyy-MM-dd}'}"
+                                   FontSize="Small"
+                                   Opacity="0.7" />
+
+                            <Label Grid.Column="2" Grid.Row="1"
+                                   Text="{Binding Duration, StringFormat='المدة: {0}'}"
+                                   FontSize="Small"
+                                   HorizontalTextAlignment="End"
+                                   VerticalTextAlignment="End"
+                                   Opacity="0.7" />
+
+                            <HorizontalStackLayout Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" Spacing="10" HorizontalOptions="End">
+                                <Button Text="فتح"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.OpenVideoCommand}"
+                                        CommandParameter="{Binding .}"
+                                        FontSize="Small"
+                                        Padding="5,0" />
+                                <Button Text="مشاركة"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.ShareVideoCommand}"
+                                        CommandParameter="{Binding .}"
+                                        FontSize="Small"
+                                        Padding="5,0" />
+                            </HorizontalStackLayout>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            <CollectionView.Footer>
+                <ActivityIndicator IsRunning="{Binding IsLoadingMore}" IsVisible="{Binding IsLoadingMore}" Margin="0,10,0,10" />
+            </CollectionView.Footer>
+        </CollectionView>
+    </Grid>
+</ContentPage>
+10. FirstPlaylistPage.xaml.cs
+C#
+ 
+ 
+ 
+// Views/FirstPlaylistPage.xaml.cs
+using KifeApp.ViewModels;
+
+namespace KifeApp.Views;
+
+public partial class FirstPlaylistPage : ContentPage
+{
+    public FirstPlaylistPage(FirstPlaylistViewModel viewModel)
+    {
+        InitializeComponent();
+        BindingContext = viewModel;
+    }
+}
+ 
+علامة التبويب الثانية: عرض باقي القوائم (5 مجموعات تباعاً)
+11. OtherPlaylistsViewModel.cs
+C#
+ 
+ 
+ 
+// ViewModels/OtherPlaylistsViewModel.cs
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using KifeApp.Models;
+using KifeApp.Services;
+using System.Collections.ObjectModel;
+using System.Windows.Input;
+
+namespace KifeApp.ViewModels
+{
+    public partial class OtherPlaylistsViewModel : ObservableObject
+    {
+        private readonly JsonDataService _jsonDataService;
+        private List<PlayListModel> _allOtherPlaylists;
+        private int _loadedGroupCount = 0;
+        private const int GroupsPerPage = 5;
+
+        [ObservableProperty]
+        public ObservableCollection<PlayListModel> playlists = new ObservableCollection<PlayListModel>();
+
+        [ObservableProperty]
+        public bool isLoadingMore = false;
+
+        public ICommand LoadMoreGroupsCommand { get; }
+        public ICommand OpenVideoCommand { get; }
+        public ICommand ShareVideoCommand { get; }
+
+        public OtherPlaylistsViewModel(JsonDataService jsonDataService)
+        {
+            _jsonDataService = jsonDataService;
+            LoadMoreGroupsCommand = new AsyncRelayCommand(LoadMoreGroupsAsync);
+            OpenVideoCommand = new AsyncRelayCommand<VideoModel>(OpenVideo);
+            ShareVideoCommand = new AsyncRelayCommand<VideoModel>(ShareVideo);
+
+            _ = LoadInitialPlaylistsAsync();
+        }
+
+        private async Task LoadInitialPlaylistsAsync()
+        {
+            var allPlaylists = await _jsonDataService.LoadDataAsync();
+            if (allPlaylists != null && allPlaylists.Count > 1) // إذا كان هناك أكثر من قائمة واحدة
+            {
+                _allOtherPlaylists = allPlaylists.Skip(1).ToList(); // تجاهل أول قائمة
+                await LoadMoreGroupsAsync();
+            }
+            else
+            {
+                _allOtherPlaylists = new List<PlayListModel>(); // تأكد من تهيئة القائمة حتى لو كانت فارغة
+            }
+        }
+
+        private async Task LoadMoreGroupsAsync()
+        {
+            if (IsLoadingMore || _allOtherPlaylists == null || _loadedGroupCount >= _allOtherPlaylists.Count)
+                return;
+
+            IsLoadingMore = true;
+
+            await Task.Delay(500); // محاكاة وقت التحميل
+
+            var groupsToLoad = _allOtherPlaylists
+                .Skip(_loadedGroupCount)
+                .Take(GroupsPerPage)
+                .ToList();
+
+            foreach (var group in groupsToLoad)
+            {
+                Playlists.Add(group);
+            }
+
+            _loadedGroupCount += groupsToLoad.Count;
+            IsLoadingMore = false;
+        }
+
+        private async Task OpenVideo(VideoModel video)
+        {
+            if (video?.URL != null)
+            {
+                try
+                {
+                    await Browser.OpenAsync(video.URL, BrowserLaunchMode.SystemPreferred);
+                }
+                catch (Exception ex)
+                {
+                    await Shell.Current.DisplayAlert("خطأ", $"تعذر فتح الفيديو: {ex.Message}", "موافق");
+                }
+            }
+        }
+
+        private async Task ShareVideo(VideoModel video)
+        {
+            if (video?.URL != null && video.Title != null)
+            {
+                await Share.RequestAsync(new ShareTextRequest
+                {
+                    Text = $"{video.Title}\n{video.URL}",
+                    Title = "مشاركة الفيديو"
+                });
+            }
+        }
+    }
+}
+12. OtherPlaylistsPage.xaml
+Xml
+ 
+ 
+ 
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:KifeApp.ViewModels"
+             x:Class="KifeApp.Views.OtherPlaylistsPage"
+             Title="باقي القوائم"
+             x:DataType="viewmodels:OtherPlaylistsViewModel">
+
+    <ContentPage.BindingContext>
+        <viewmodels:OtherPlaylistsViewModel />
+    </ContentPage.BindingContext>
+
+    <Grid>
+        <CollectionView ItemsSource="{Binding Playlists}"
+                        IsGrouped="True"
+                        RemainingItemsThreshold="1"
+                        RemainingItemsThresholdReachedCommand="{Binding LoadMoreGroupsCommand}"
+                        SelectionMode="None">
+            <CollectionView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <Grid Padding="10,5">
+                        <Label Text="{Binding playlist}"
+                               FontSize="Large"
+                               FontAttributes="Bold" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.GroupHeaderTemplate>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <!-- هنا نستخدم تصميم الفيديو المشترك -->
+                    <Frame Margin="5" Padding="5" HasShadow="True">
+                        <Grid ColumnDefinitions="120,*,Auto" RowDefinitions="Auto,Auto,Auto" ColumnSpacing="10" RowSpacing="5">
+                            <Image Grid.Column="0" Grid.RowSpan="3"
+                                   Source="{Binding Thumbnail}"
+                                   Aspect="AspectFill"
+                                   HeightRequest="90"
+                                   WidthRequest="110"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center" />
+
+                            <Label Grid.Column="1" Grid.Row="0"
+                                   Text="{Binding Title}"
+                                   FontSize="Medium"
+                                   FontAttributes="Bold"
+                                   LineBreakMode="WordWrap" />
+
+                            <Label Grid.Column="1" Grid.Row="1"
+                                   Text="{Binding UploadDate, StringFormat='تاريخ النشر: {0:yyyy-MM-dd}'}"
+                                   FontSize="Small"
+                                   Opacity="0.7" />
+
+                            <Label Grid.Column="2" Grid.Row="1"
+                                   Text="{Binding Duration, StringFormat='المدة: {0}'}"
+                                   FontSize="Small"
+                                   HorizontalTextAlignment="End"
+                                   VerticalTextAlignment="End"
+                                   Opacity="0.7" />
+
+                            <HorizontalStackLayout Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" Spacing="10" HorizontalOptions="End">
+                                <Button Text="فتح"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.OpenVideoCommand}"
+                                        CommandParameter="{Binding .}"
+                                        FontSize="Small"
+                                        Padding="5,0" />
+                                <Button Text="مشاركة"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.ShareVideoCommand}"
+                                        CommandParameter="{Binding .}"
+                                        FontSize="Small"
+                                        Padding="5,0" />
+                            </HorizontalStackLayout>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            <CollectionView.Footer>
+                <ActivityIndicator IsRunning="{Binding IsLoadingMore}" IsVisible="{Binding IsLoadingMore}" Margin="0,10,0,10" />
+            </CollectionView.Footer>
+        </CollectionView>
+    </Grid>
+</ContentPage>
+13. OtherPlaylistsPage.xaml.cs
+C#
+ 
+ 
+ 
+// Views/OtherPlaylistsPage.xaml.cs
+using KifeApp.ViewModels;
+
+namespace KifeApp.Views;
+
+public partial class OtherPlaylistsPage : ContentPage
+{
+    public OtherPlaylistsPage(OtherPlaylistsViewModel viewModel)
+    {
+        InitializeComponent();
+        BindingContext = viewModel;
+    }
+}
+ 
+علامة التبويب الثالثة: البحث والتصفية
+1. 
+SearchViewModel.cs
+C#
+ 
+ 
+ 
+// ViewModels/SearchViewModel.cs
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using KifeApp.Models;
+using KifeApp.Services;
+using System.Collections.ObjectModel;
+using System.Windows.Input;
+
+namespace KifeApp.ViewModels
+{
+    public partial class SearchViewModel : ObservableObject
+    {
+        private readonly JsonDataService _jsonDataService;
+        private List<VideoModel> _allVideos;
+
+        [ObservableProperty]
+        public ObservableCollection<VideoModel> filteredVideos = new ObservableCollection<VideoModel>();
+
+        [ObservableProperty]
+        public string searchText;
+
+        public ICommand FilterVideosCommand { get; }
+        public ICommand OpenVideoCommand { get; }
+        public ICommand ShareVideoCommand { get; }
+
+        public SearchViewModel(JsonDataService jsonDataService)
+        {
+            _jsonDataService = jsonDataService;
+            FilterVideosCommand = new RelayCommand(FilterVideos);
+            OpenVideoCommand = new AsyncRelayCommand<VideoModel>(OpenVideo);
+            ShareVideoCommand = new AsyncRelayCommand<VideoModel>(ShareVideo);
+
+            _ = LoadAllVideosAsync();
+        }
+
+        private async Task LoadAllVideosAsync()
+        {
+            var allPlaylists = await _jsonDataService.LoadDataAsync();
+            if (allPlaylists != null)
+            {
+                _allVideos = allPlaylists.SelectMany(p => p.ToList()).ToList();
+                FilterVideos(); // عرض كل الفيديوهات مبدئيًا
+            }
+        }
+
+        private void FilterVideos()
+        {
+            if (_allVideos == null)
+                return;
+
+            FilteredVideos.Clear();
+
+            IEnumerable<VideoModel> query = _allVideos;
+
+            if (!string.IsNullOrWhiteSpace(SearchText))
+            {
+                // البحث بالعنوان
+                query = query.Where(v => v.Title.Contains(SearchText, StringComparison.OrdinalIgnoreCase));
+            }
+
+            // الآن، تطبيق الفلاتر الزمنية بناءً على الأزرار (ستتم إضافتها في الـ XAML)
+            // هذه منطق عام، ستحتاج لربطها بـ Properties في الـ ViewModel تحدد الفترة الزمنية المختارة.
+            // على سبيل المثال، يمكنك إضافة خاصية SelectedFilterPeriod (اليوم، آخر 7 أيام، شهر، عام)
+            // ونقوم بتصفية الفيديوهات بناءً عليها.
+
+            foreach (var video in query)
+            {
+                FilteredVideos.Add(video);
+            }
+        }
+
+        // هذه دوال مساعدة للفلاتر الزمنية، يمكنك استدعائها من خلال أزرار
+        public void FilterByToday()
+        {
+            FilteredVideos.Clear();
+            var today = DateTime.Today;
+            foreach (var video in _allVideos.Where(v => v.UploadDate?.Date == today))
+            {
+                FilteredVideos.Add(video);
+            }
+        }
+
+        public void FilterByLast7Days()
+        {
+            FilteredVideos.Clear();
+            var sevenDaysAgo = DateTime.Today.AddDays(-7);
+            foreach (var video in _allVideos.Where(v => v.UploadDate?.Date >= sevenDaysAgo && v.UploadDate?.Date <= DateTime.Today))
+            {
+                FilteredVideos.Add(video);
+            }
+        }
+
+        public void FilterByLastMonth()
+        {
+            FilteredVideos.Clear();
+            var oneMonthAgo = DateTime.Today.AddMonths(-1);
+            foreach (var video in _allVideos.Where(v => v.UploadDate?.Date >= oneMonthAgo && v.UploadDate?.Date <= DateTime.Today))
+            {
+                FilteredVideos.Add(video);
+            }
+        }
+
+        public void FilterByLastYear()
+        {
+            FilteredVideos.Clear();
+            var oneYearAgo = DateTime.Today.AddYears(-1);
+            foreach (var video in _allVideos.Where(v => v.UploadDate?.Date >= oneYearAgo && v.UploadDate?.Date <= DateTime.Today))
+            {
+                FilteredVideos.Add(video);
+            }
+        }
+        
+        public void ShowAllVideos()
+        {
+            FilteredVideos.Clear();
+            if (_allVideos != null)
+            {
+                foreach (var video in _allVideos)
+                {
+                    FilteredVideos.Add(video);
+                }
+            }
+        }
+
+        private async Task OpenVideo(VideoModel video)
+        {
+            if (video?.URL != null)
+            {
+                try
+                {
+                    await Browser.OpenAsync(video.URL, BrowserLaunchMode.SystemPreferred);
+                }
+                catch (Exception ex)
+                {
+                    await Shell.Current.DisplayAlert("خطأ", $"تعذر فتح الفيديو: {ex.Message}", "موافق");
+                }
+            }
+        }
+
+        private async Task ShareVideo(VideoModel video)
+        {
+            if (video?.URL != null && video.Title != null)
+            {
+                await Share.RequestAsync(new ShareTextRequest
+                {
+                    Text = $"{video.Title}\n{video.URL}",
+                    Title = "مشاركة الفيديو"
+                });
+            }
+        }
+    }
+}
+1. 
+SearchPage.xaml
+Xml
+ 
+ 
+ 
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:KifeApp.ViewModels"
+             x:Class="KifeApp.Views.SearchPage"
+             Title="بحث وتصفية"
+             x:DataType="viewmodels:SearchViewModel">
+
+    <ContentPage.BindingContext>
+        <viewmodels:SearchViewModel />
+    </ContentPage.BindingContext>
+
+    <Grid RowDefinitions="Auto,Auto,*" RowSpacing="10" Padding="10">
+        <!-- شريط البحث -->
+        <SearchBar Grid.Row="0"
+                   Placeholder="ابحث بعنوان الفيديو..."
+                   Text="{Binding SearchText}"
+                   SearchCommand="{Binding FilterVideosCommand}" />
+
+        <!-- أزرار التصفية الزمنية -->
+        <ScrollView Grid.Row="1" Orientation="Horizontal">
+            <HorizontalStackLayout Spacing="5">
+                <Button Text="عرض الكل" Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.ShowAllVideosCommand}" />
+                <Button Text="اليوم" Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.FilterByTodayCommand}" />
+                <Button Text="آخر 7 أيام" Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.FilterByLast7DaysCommand}" />
+                <Button Text="آخر شهر" Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.FilterByLastMonthCommand}" />
+                <Button Text="آخر عام" Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.FilterByLastYearCommand}" />
+            </HorizontalStackLayout>
+        </ScrollView>
+
+        <!-- عرض الفيديوهات المفلترة -->
+        <CollectionView Grid.Row="2"
+                        ItemsSource="{Binding FilteredVideos}"
+                        SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <!-- هنا نستخدم تصميم الفيديو المشترك -->
+                    <Frame Margin="5" Padding="5" HasShadow="True">
+                        <Grid ColumnDefinitions="120,*,Auto" RowDefinitions="Auto,Auto,Auto" ColumnSpacing="10" RowSpacing="5">
+                            <Image Grid.Column="0" Grid.RowSpan="3"
+                                   Source="{Binding Thumbnail}"
+                                   Aspect="AspectFill"
+                                   HeightRequest="90"
+                                   WidthRequest="110"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center" />
+
+                            <Label Grid.Column="1" Grid.Row="0"
+                                   Text="{Binding Title}"
+                                   FontSize="Medium"
+                                   FontAttributes="Bold"
+                                   LineBreakMode="WordWrap" />
+
+                            <Label Grid.Column="1" Grid.Row="1"
+                                   Text="{Binding UploadDate, StringFormat='تاريخ النشر: {0:yyyy-MM-dd}'}"
+                                   FontSize="Small"
+                                   Opacity="0.7" />
+
+                            <Label Grid.Column="2" Grid.Row="1"
+                                   Text="{Binding Duration, StringFormat='المدة: {0}'}"
+                                   FontSize="Small"
+                                   HorizontalTextAlignment="End"
+                                   VerticalTextAlignment="End"
+                                   Opacity="0.7" />
+
+                            <HorizontalStackLayout Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" Spacing="10" HorizontalOptions="End">
+                                <Button Text="فتح"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.OpenVideoCommand}"
+                                        CommandParameter="{Binding .}"
+                                        FontSize="Small"
+                                        Padding="5,0" />
+                                <Button Text="مشاركة"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.ShareVideoCommand}"
+                                        CommandParameter="{Binding .}"
+                                        FontSize="Small"
+                                        Padding="5,0" />
+                            </HorizontalStackLayout>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>
+ملاحظة على SearchPage.xaml: لتشغيل أوامر FilterByToday, FilterByLast7Days, إلخ، ستحتاج إلى تعريفها كـ RelayCommand في SearchViewModel وتسميتها مثل FilterByTodayCommand, FilterByLast7DaysCommand، وهكذا. ثم تربطها بـ Command في أزرار الـ XAML. قمت بتعديل الـ ViewModel ليتضمن هذه الأوامر.
+C#
+ 
+ 
+ 
+// SearchViewModel.cs - إضافة الأوامر لهذه الفلاتر
+// ...
+        public ICommand ShowAllVideosCommand { get; }
+        public ICommand FilterByTodayCommand { get; }
+        public ICommand FilterByLast7DaysCommand { get; }
+        public ICommand FilterByLastMonthCommand { get; }
+        public ICommand FilterByLastYearCommand { get; }
+
+        public SearchViewModel(JsonDataService jsonDataService)
+        {
+            _jsonDataService = jsonDataService;
+            FilterVideosCommand = new RelayCommand(FilterVideos);
+            OpenVideoCommand = new AsyncRelayCommand<VideoModel>(OpenVideo);
+            ShareVideoCommand = new AsyncRelayCommand<VideoModel>(ShareVideo);
+
+            ShowAllVideosCommand = new RelayCommand(ShowAllVideos);
+            FilterByTodayCommand = new RelayCommand(FilterByToday);
+            FilterByLast7DaysCommand = new RelayCommand(FilterByLast7Days);
+            FilterByLastMonthCommand = new RelayCommand(FilterByLastMonth);
+            FilterByLastYearCommand = new RelayCommand(FilterByLastYear);
+
+            _ = LoadAllVideosAsync();
+        }
+// ...
+1. 
+SearchPage.xaml.cs
+C#
+ 
+ 
+ 
+// Views/SearchPage.xaml.cs
+using KifeApp.ViewModels;
+
+namespace KifeApp.Views;
+
+public partial class SearchPage : ContentPage
+{
+    public SearchPage(SearchViewModel viewModel)
+    {
+        InitializeComponent();
+        BindingContext = viewModel;
+    }
+}
+علامة التبويب الرابعة: الإعدادات
+1. 
+AboutViewModel.cs
+C#
+ 
+ 
+ 
+// ViewModels/AboutViewModel.cs
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using System.Windows.Input;
+
+namespace KifeApp.ViewModels
+{
+    public partial class AboutViewModel : ObservableObject
+    {
+        [ObservableProperty]
+        public string appVersion = "1.0.0"; // يمكنك تحديث هذا من info.plist أو AndroidManifest
+        
+        [ObservableProperty]
+        public string developerName = "KifeApp Developer"; // اسم المطور
+
+        [ObservableProperty]
+        public string developerInfo = "تطوير تطبيقات الهاتف المحمول باستخدام .NET MAUI."; // نبذة عن المطور
+
+        public ICommand ToggleDarkModeCommand { get; }
+        public ICommand ToggleLightModeCommand { get; }
+        public ICommand ToggleSystemThemeCommand { get; }
+        public ICommand OpenWhatsAppCommand { get; }
+        public ICommand OpenTelegramCommand { get; }
+
+        public AboutViewModel()
+        {
+            ToggleDarkModeCommand = new RelayCommand(() => SetUserAppTheme(AppTheme.Dark));
+            ToggleLightModeCommand = new RelayCommand(() => SetUserAppTheme(AppTheme.Light));
+            ToggleSystemThemeCommand = new RelayCommand(() => SetUserAppTheme(AppTheme.Unspecified));
+            OpenWhatsAppCommand = new AsyncRelayCommand(OpenWhatsApp);
+            OpenTelegramCommand = new AsyncRelayCommand(OpenTelegram);
+        }
+
+        private void SetUserAppTheme(AppTheme theme)
+        {
+            App.Current.UserAppTheme = theme;
+            // يمكنك حفظ هذا التفضيل في Preferences ليتم تحميله عند فتح التطبيق مجددًا
+            Preferences.Set("AppTheme", (int)theme);
+        }
+
+        private async Task OpenWhatsApp()
+        {
+            string phoneNumber = "01098673012";
+            string whatsappUrl = $"whatsapp://send?phone=+2{phoneNumber}"; // +2 Egypt country code
+
+            try
+            {
+                await Launcher.OpenAsync(whatsappUrl);
+            }
+            catch (Exception)
+            {
+                await Shell.Current.DisplayAlert("خطأ", "واتساب غير مثبت أو حدث خطأ.", "موافق");
+            }
+        }
+
+        private async Task OpenTelegram()
+        {
+            string phoneNumber = "01098673012";
+            string telegramUrl = $"tg://resolve?phone=+2{phoneNumber}"; // +2 Egypt country code
+
+            try
+            {
+                await Launcher.OpenAsync(telegramUrl);
+            }
+            catch (Exception)
+            {
+                await Shell.Current.DisplayAlert("خطأ", "تليجرام غير مثبت أو حدث خطأ.", "موافق");
+            }
+        }
+    }
+}
+1. 
+AboutPage.xaml
+Xml
+ 
+ 
+ 
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:KifeApp.ViewModels"
+             x:Class="KifeApp.Views.AboutPage"
+             Title="عن التطبيق"
+             x:DataType="viewmodels:AboutViewModel">
+
+    <ContentPage.BindingContext>
+        <viewmodels:AboutViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="20" VerticalOptions="Center">
+            <!-- معلومات المطور وإصدار التطبيق -->
+            <Frame Padding="15" CornerRadius="10" HasShadow="True">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="معلومات عن المطور" FontSize="Title" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                    <Label Text="{Binding DeveloperName}" FontSize="Medium" HorizontalTextAlignment="Center" />
+                    <Label Text="{Binding DeveloperInfo}" FontSize="Small" HorizontalTextAlignment="Center" TextColor="{AppThemeBinding Dark=LightGray, Light=DarkGray}" />
+                    <BoxView HeightRequest="1" Color="{AppThemeBinding Dark=Gray, Light=LightGray}" HorizontalOptions="FillAndExpand" Margin="0,5" />
+                    <Label Text="إصدار التطبيق" FontSize="Title" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                    <Label Text="{Binding AppVersion}" FontSize="Medium" HorizontalTextAlignment="Center" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- أزرار الوضع المظلم والفاتح -->
+            <Frame Padding="15" CornerRadius="10" HasShadow="True">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="الوضع الليلي / النهاري" FontSize="Title" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                    <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+                        <Button Text="فاتح" Command="{Binding ToggleLightModeCommand}" />
+                        <Button Text="داكن" Command="{Binding ToggleDarkModeCommand}" />
+                        <Button Text="النظام" Command="{Binding ToggleSystemThemeCommand}" />
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- نبذة عن التطبيق -->
+            <Frame Padding="15" CornerRadius="10" HasShadow="True">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="نبذة عن KifeApp" FontSize="Title" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                    <Label Text="KifeApp هو تطبيق يسمح لك بتصفح قوائم التشغيل والفيديوهات المفضلة لديك بسهولة. استمتع بتجربة مشاهدة منظمة ومميزة مع إمكانية البحث والتصفية حسب تاريخ النشر. تمتع بالتحكم الكامل في عرض المحتوى!"
+                           FontSize="Medium"
+                           HorizontalTextAlignment="Center"
+                           LineBreakMode="WordWrap" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- أزرار التواصل -->
+            <Frame Padding="15" CornerRadius="10" HasShadow="True">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="تواصل معنا" FontSize="Title" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                    <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+                        <Button Text="واتساب" Command="{Binding OpenWhatsAppCommand}" />
+                        <Button Text="تليجرام" Command="{Binding OpenTelegramCommand}" />
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
+ملاحظة على AboutPage.xaml: لاستخدام AppThemeBinding بشكل صحيح لتغيير لون النص، تأكد من تعريف ألوان في App.xaml أو Resources/Styles/Colors.xaml مثل:
+Xml
+ 
+ 
+ 
+<!-- App.xaml أو Colors.xaml -->
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Color x:Key="LightGray">#D3D3D3</Color>
+    <Color x:Key="DarkGray">#A9A9A9</Color>
+
+    <!-- الألوان الأساسية للتطبيق -->
+    <Color x:Key="Primary">#512BD4</Color>
+    <Color x:Key="PrimaryDark">#8065B3</Color>
+    <!-- ... المزيد من الألوان -->
+</ResourceDictionary>
+وقم بتعديل App.xaml.cs لتحميل تفضيل الثيم عند بدء التشغيل:
+C#
+ 
+ 
+ 
+// App.xaml.cs
+namespace KifeApp;
+
+public partial class App : Application
+{
+    public App()
+    {
+        InitializeComponent();
+
+        MainPage = new AppShell();
+
+        // تحميل تفضيل الثيم عند بدء التطبيق
+        if (Preferences.ContainsKey("AppTheme"))
+        {
+            var savedTheme = (AppTheme)Preferences.Get("AppTheme", (int)AppTheme.Unspecified);
+            App.Current.UserAppTheme = savedTheme;
+        }
+    }
+}
+1. 
+AboutPage.xaml.cs
+C#
+ 
+ 
+ 
+// Views/AboutPage.xaml.cs
+using KifeApp.ViewModels;
+
+namespace KifeApp.Views;
+
+public partial class AboutPage : ContentPage
+{
+    public AboutPage(AboutViewModel viewModel)
+    {
+        InitializeComponent();
+        BindingContext = viewModel;
+    }
+}
+ 
+تحديث App.xaml.cs
+تأكد أن App.xaml.cs يبدأ بـ AppShell كصفحة رئيسية:
+C#
+ 
+ 
+ 
+// App.xaml.cs
+namespace KifeApp;
+
+public partial class App : Application
+{
+    public App()
+    {
+        InitializeComponent();
+
+        MainPage = new AppShell();
+    }
+}
+ 
+مراجعة سريعة قبل التشغيل:
+1. 
+الملفات والأيقونات: تأكد من أن جميع ملفات final.json و youtube_icon.png, playlists_icon.png, search_icon.png, info_icon.png موجودة في المسارات الصحيحة (Resources\Raw لملف JSON و Resources\Images للأيقونات).
+2. 
+MauiProgram.cs: تأكد من تسجيل جميع الـ ViewModels والصفحات بشكل صحيح، بالإضافة إلى JsonDataService و UseMauiCommunityToolkit().
+3. 
+AppShell.xaml: تأكد من ربط الصفحات الصحيحة بالأيقونات وعلامات التبويب.
+4. 
+CommunityToolkit.Mvvm: تأكد من تثبيته في المشروع.
+5. 
+Models: تأكد من أن PlayListModel و VideoModel مطابقة لما هو موجود هنا.
+6. 
+App.xaml: إذا كنت تريد تخصيص ألوان للثيم، أضفها هناك.
+بهذا، يكون لديك تطبيق .NET MAUI كامل يغطي جميع المتطلبات التي ذكرتها. آمل أن يكون هذا مفيداً لك!
