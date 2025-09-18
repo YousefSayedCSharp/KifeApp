@@ -159,7 +159,9 @@ public partial class SettingsViewModel : ObservableObject
                 bool updated = await _jsonDataService.CheckForAndUpdateDataAsync(forceUpdate: true);
                 if (updated)
                 {
-                    await Shell.Current.DisplayAlert("تحديث البيانات", "تم تحديث البيانات بنجاح! يرجى إعادة تشغيل التطبيق لتطبيق التغييرات.", "موافق");
+                    //await Shell.Current.DisplayAlert("تحديث البيانات", "تم تحديث البيانات بنجاح! يرجى إعادة تشغيل التطبيق لتطبيق التغييرات.", "موافق");
+                    App.ReloadAppShell();
+                    App.ShowToast("تم تحديث البيانات بنجاح!", 3);
                 }
                 else
                 {
