@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:KifeApp.ViewModels"
+             x:Class="KifeApp.Views.SettingsPage"
+             Title="الإعدادات"
+             x:DataType="viewmodels:SettingsViewModel">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="15" Padding="20">
+
+            <!-- قسم الثيمات -->
+            <Border StrokeShape="RoundRectangle 10" StrokeThickness="1" Padding="15">
+                <Border.Shadow>
+                    <Shadow Brush="Black" Opacity="0.5" Offset="5,5" Radius="10" />
+                </Border.Shadow>
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="الوضع الليلي / النهاري" FontSize="Title" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                    <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+                        <Button Text="فاتح" Command="{Binding ToggleLightModeCommand}" />
+                        <Button Text="داكن" Command="{Binding ToggleDarkModeCommand}" />
+                        <Button Text="النظام" Command="{Binding ToggleSystemThemeCommand}" />
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- قسم تحديثات البيانات والتطبيق -->
+            <Border StrokeShape="RoundRectangle 10" StrokeThickness="1" Padding="15">
+                <Border.Shadow>
+                    <Shadow Brush="Black" Opacity="0.5" Offset="5,5" Radius="10" />
+                </Border.Shadow>
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="التحديثات" FontSize="Title" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                    <Button Text="التحقق من تحديث البيانات" Command="{Binding CheckForDataUpdateCommand}" />
+                    <Button Text="التحقق من تحديث التطبيق" Command="{Binding CheckForAppUpdateCommand}" />
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- قسم التواصل -->
+            <Border StrokeShape="RoundRectangle 10" StrokeThickness="1" Padding="15">
+                <Border.Shadow>
+                    <Shadow Brush="Black" Opacity="0.5" Offset="5,5" Radius="10" />
+                </Border.Shadow>
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="تواصل معنا" FontSize="Title" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                    <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+                        <Button
+                            Text="&#xf232; واتساب"
+                            FontFamily="FAB"
+                            BackgroundColor="Transparent"
+                            FontSize="32"
+                            TextColor="{AppThemeBinding Light=Black, Dark=White}"
+                            SemanticProperties.Description="واتساب"
+                            Command="{Binding OpenWhatsAppCommand}"
+                            />
+                        <Button
+                            Text="&#xf3fe; تليجرام"
+                            FontFamily="FAB"
+                            BackgroundColor="Transparent"
+                            FontSize="32"
+                            TextColor="{AppThemeBinding Light=Black, Dark=White}"
+                            SemanticProperties.Description="تليجرام"
+                            Command="{Binding OpenTelegramCommand}"
+                            />
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- زر "عن التطبيق" -->
+            <Border StrokeShape="RoundRectangle 10" StrokeThickness="1" Padding="15">
+                <Border.Shadow>
+                    <Shadow Brush="Black" Opacity="0.5" Offset="5,5" Radius="10" />
+                </Border.Shadow>
+                <VerticalStackLayout Spacing="10">
+                    <Button Text="عن التطبيق" Command="{Binding OpenAboutPageCommand}" />
+                    <Label Text="{Binding AppVersion, StringFormat='إصدار التطبيق: {0}'}" FontSize="Small" HorizontalTextAlignment="Center" TextColor="{AppThemeBinding Dark=LightGray, Light=DarkGray}" />
+                </VerticalStackLayout>
+            </Border>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

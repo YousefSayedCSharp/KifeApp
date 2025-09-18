@@ -1,7 +1,9 @@
-﻿using Microsoft.Extensions.Logging;
+﻿// MauiProgram.cs
+using Microsoft.Extensions.Logging;
 using KifeApp.Services;
 using KifeApp.ViewModels;
 using KifeApp.Views;
+using System.Net.Http; // تأكد من استيراد هذه
 
 namespace KifeApp
 {
@@ -27,6 +29,9 @@ namespace KifeApp
             builder.Logging.AddDebug();
 #endif
 
+            // تسجيل HttpClient كخدمة Singleton
+            builder.Services.AddSingleton<HttpClient>();
+
             // تسجيل الخدمات (Service)
             builder.Services.AddSingleton<JsonDataService>();
 
@@ -34,13 +39,16 @@ namespace KifeApp
             builder.Services.AddTransient<FirstPlaylistViewModel>();
             builder.Services.AddTransient<OtherPlaylistsViewModel>();
             builder.Services.AddTransient<SearchViewModel>();
-            builder.Services.AddSingleton<AboutViewModel>(); // Singleton لأن المعلومات ثابتة
+            // builder.Services.AddSingleton<AboutViewModel>(); // سيتم استبداله بـ SettingsViewModel جزئياً
 
             // تسجيل الصفحات (Views)
             builder.Services.AddTransient<FirstPlaylistPage>();
             builder.Services.AddTransient<OtherPlaylistsPage>();
             builder.Services.AddTransient<SearchPage>();
             builder.Services.AddTransient<AboutPage>();
+            // إضافة SettingsPage و ViewModel الخاص بها
+            builder.Services.AddSingleton<SettingsViewModel>();
+            builder.Services.AddTransient<SettingsPage>();
 
             return builder.Build();
         }

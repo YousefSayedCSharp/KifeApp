@@ -10,23 +10,19 @@
     Title="KifeApp"
     >
 
-    <!-- تعريف الموارد لـ Font Awesome Icons -->
     <Shell.Resources>
         <ResourceDictionary>
-            <!-- يمكنك وضع رموز Font Awesome هنا كـ Char -->
-            <!-- هذه هي رموز Unicode لأيقونات Font Awesome. تأكد من مطابقتها لإصدار Font Awesome الذي تستخدمه. -->
-            <!-- يمكنك العثور على الرموز في موقع Font Awesome الرسمي أو في ملف cheatsheet الخاص بهم. -->
             <x:String x:Key="YoutubeVideosIcon">&#xf167;</x:String>
-            <!-- fa-youtube -->
             <x:String x:Key="YoutubePlaylistsIcon">&#xf03a;</x:String>
-            <!-- fa-list -->
             <x:String x:Key="SearchIcon">&#xf002;</x:String>
-            <!-- fa-search -->
+            <x:String x:Key="SettingsIcon">&#xf013;</x:String>
+            <!-- أيقونة الإعدادات: fa-cog أو fa-gear -->
             <x:String x:Key="AboutIcon">&#xf05a;</x:String>
-            <!-- fa-info-circle -->
+            <!-- أيقونة عن التطبيق: fa-info-circle -->
         </ResourceDictionary>
     </Shell.Resources>
 
+    <!-- تعريف الـ TabBar الذي يحتوي على علامات التبويب الرئيسية -->
     <TabBar>
         <ShellContent
             Title="الفيديوهات"
@@ -37,7 +33,6 @@
                     Glyph="{StaticResource YoutubeVideosIcon}"
                     Color="{AppThemeBinding Light=Black, Dark=White}"
                     />
-                <!-- يمكنك تغيير اللون هنا -->
             </ShellContent.Icon>
         </ShellContent>
 
@@ -50,7 +45,6 @@
                     Glyph="{StaticResource YoutubePlaylistsIcon}"
                     Color="{AppThemeBinding Light=Black, Dark=White}"
 />
-                <!-- يمكنك تغيير اللون هنا -->
             </ShellContent.Icon>
         </ShellContent>
 
@@ -63,22 +57,53 @@
                     Glyph="{StaticResource SearchIcon}"
                     Color="{AppThemeBinding Light=Black, Dark=White}"
 />
-                <!-- يمكنك تغيير اللون هنا -->
             </ShellContent.Icon>
         </ShellContent>
 
+        <!-- علامة تبويب الإعدادات الجديدة -->
         <ShellContent
-            Title="عني"
-            ContentTemplate="{DataTemplate local:AboutPage}">
+            Title="الإعدادات"
+            ContentTemplate="{DataTemplate local:SettingsPage}">
             <ShellContent.Icon>
                 <FontImageSource
                     FontFamily="FAS"
-                    Glyph="{StaticResource AboutIcon}"
+                    Glyph="{StaticResource SettingsIcon}"
                     Color="{AppThemeBinding Light=Black, Dark=White}"
 />
-                <!-- يمكنك تغيير اللون هنا -->
             </ShellContent.Icon>
         </ShellContent>
     </TabBar>
+
+    <!--
+        لتسجيل مسار AboutPage بحيث يمكن الانتقال إليها من SettingsPage،
+        لا نضعها داخل <Shell.Items> مرة أخرى لأن TabBar هو مجموعة من Items.
+        بدلاً من ذلك، نستخدم Shell.SetTabBarIsVisible="false" على ShellContent مباشرة
+        لإخفائه من الـ TabBar الافتراضي، ونسجل له مساراً فقط.
+        لكن في .NET MAUI عادةً ما يكفي تعريف Route للصفحة حتى لو لم تكن مرئية مباشرة.
+        أسهل طريقة لتعريف مسار لصفحة ليست ضمن TabBar أو Flyout هي تسجيلها كـ ShellContent منفصل
+        مع تعيين خاصية Route. لكن بما أننا نستخدم TabBar، فإن العناصر داخله هي الـ Items.
+
+        لحل هذه المشكلة بشكل صحيح وبدون أخطاء تكرار الـ 'Items'،
+        سنقوم بتسجيل مسار AboutPage في ViewModel الخاص بـ SettingsPage
+        أو في مكان مركزي مثل AppShell.xaml.cs باستخدام Routing.RegisterRoute.
+
+        دعنا نجرب إزالة هذا الجزء بالكامل من الـ XAML وتسجيل المسار برمجياً.
+        أو ببساطة، يمكننا تعريف AboutPage كـ ShellContent
+        مع ضبط Visibility=False أو Shell.TabBarIsVisible=False
+        إذا كان هدفنا هو الوصول إليها عبر GoToAsync فقط.
+
+        لكن بما أننا نريدها كصفحة "فرعية" من الإعدادات،
+        سنعرفها في الـ Code-behind لـ AppShell.xaml.cs.
+    -->
+
+    <!-- نقوم بإزالة هذا الجزء تمامًا من XAML لتجنب تكرار تعريف Items -->
+    <!--
+    <Shell.Items>
+        <ShellContent
+            Title="عن التطبيق"
+            ContentTemplate="{DataTemplate local:AboutPage}"
+            Route="AboutPage" />
+    </Shell.Items>
+    -->
 
 </Shell>
